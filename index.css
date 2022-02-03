@@ -1,0 +1,59 @@
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+h1 {
+  display: none;
+}
+
+.loginAuth {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  display: none;
+}
+.loginAuth form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  justify-content: center;
+  align-items: center;
+  background: #ccc;
+  padding: 20px;
+  border-radius: 8px;
+}
+
+.loginAuth :is(button, input){
+    width: 100%;
+    border: none;
+    border-radius: 8px;
+    padding: 5px;
+    cursor: pointer;
+}
+
+.loginAuth input{
+    cursor: unset;
+}
+
+.input-pass{
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.input-pass label{
+  cursor: pointer;
+}
+
+
+.wrongLogin{
+    min-height: 20px;
+}
+.wrongLogin p {
+  margin: 0;
+  color: rgb(214, 29, 29);
+  font-weight: bold;
+  display: none;
+}
