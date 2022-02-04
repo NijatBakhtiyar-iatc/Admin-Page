@@ -20,7 +20,6 @@ var passVal = $(".loginAuth #pass-val");
 emailVal.val("");
 passVal.val("");
 
-var loginArr = [];
 
 var storageLogin = localStorage.getItem("Login");
 
@@ -33,30 +32,26 @@ if (storageLogin != null) {
 }
 
 // if storage is null
-else {
+
   $(".loginAuth form").on("submit", function (e) {
     e.preventDefault();
 
     onValue(branch, function (snap) {
       var serverData = snap.val();
-      for (let value of Object.entries(serverData)) {
-        loginArr.push(value[1]);
+      console.log(serverData.email);
+       
+      if (emailVal.val() === serverData.email && passVal.val() === serverData.password) {
+        $("h1").css("display", "block");
+        $(".loginAuth").css("display", "none");
+        localStorage.setItem("Login", [emailVal.val(), passVal.val()]);
+      } else {
+        $(".loginAuth").css("display", "flex");
+        $(".wrongLogin p").css("display", "block");
       }
+      
     });
-
-    if (emailVal.val() === loginArr[0] && passVal.val() === loginArr[1]) {
-      $("h1").css("display", "block");
-      $(".loginAuth").css("display", "none");
-      localStorage.setItem("Login", [emailVal.val(), passVal.val()]);
-    } else {
-      $(".loginAuth").css("display", "flex");
-      $(".wrongLogin p").css("display", "block");
-    }
-
-    emailVal.val("");
-    passVal.val("");
   });
-}
+
 
 // Show Password
 $(".input-pass label").on("click", function () {

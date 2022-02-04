@@ -28,10 +28,17 @@
           />
           <label for="pass-val">Show</label>
         </div>
+        <div
+          class="g-recaptcha"
+          data-theme="light"
+          data-size="normal"
+          data-sitekey="6LfFfFgeAAAAAJ9MEtUtE8fTqUue_ZoFMw7Xprkd"
+          data-callback="recaptcha_callback"
+        ></div>
         <div class="wrongLogin">
           <p>Email or Password wrong!</p>
         </div>
-        <button type="submit">Login</button>
+        <button type="submit" disabled>Login</button>
       </form>
     </div>
     <script
@@ -39,11 +46,19 @@
       integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
       crossorigin="anonymous"
     ></script>
+    <script src="https://www.google.com/recaptcha/api.js"></script>
     <script
       type="module"
       src="https://www.gstatic.com/firebasejs/9.6.5/firebase-database.js"
     ></script>
     <script type="module" src="./firebase/firebase.js"></script>
     <script type="module" src="./firebase/index.mjs"></script>
+
+    <script>
+      function recaptcha_callback(){
+        $("form button").removeAttr("disabled");
+        $("form button").css("cursor", "pointer")
+      }
+    </script>
   </body>
 </html>

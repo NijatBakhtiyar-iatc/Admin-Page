@@ -1,4 +1,4 @@
-*{
+* {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
@@ -25,35 +25,47 @@ h1 {
   border-radius: 8px;
 }
 
-.loginAuth :is(button, input){
-    width: 100%;
-    border: none;
-    border-radius: 8px;
-    padding: 5px;
-    cursor: pointer;
-}
-
-.loginAuth input{
-    cursor: unset;
-}
-
-.input-pass{
-  display: flex;
-  align-items: center;
-  gap: 5px;
-}
-
-.input-pass label{
+.loginAuth :is(button, input) {
+  width: 100%;
+  border: none;
+  border-radius: 8px;
+  padding: 10px;
   cursor: pointer;
 }
 
+.loginAuth button{
+  cursor: not-allowed;
+}
 
-.wrongLogin{
-    min-height: 20px;
+.loginAuth input {
+  cursor: unset;
+}
+
+.input-pass {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  width: 100%;
+}
+
+.input-pass label {
+  cursor: pointer;
+}
+
+.wrongLogin {
+  min-height: 20px;
 }
 .wrongLogin p {
   margin: 0;
   color: rgb(214, 29, 29);
   font-weight: bold;
   display: none;
+}
+
+iframe :is(.rc-anchor-center-item,rc-anchor-center-item){
+  cursor: pointer;
+}
+
+iframe[title="reCAPTCHA"] body {
+  cursor: pointer;
 }
